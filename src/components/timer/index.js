@@ -6,7 +6,8 @@ import styles from './styles';
 export default class Timer extends Component {
   constructor(props) {
     super(props);
-    this.state = { current: props.current };
+    const { navigation } = props;
+    this.state = { current: navigation.getParam('current') };
 
     this.counter = setInterval(() => {
       this.setState(({ current }) => ({ current: passSecond(current) }))
@@ -21,7 +22,7 @@ export default class Timer extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.timer}>{formatTime(this.state.current)}</Text>
       </View>
     );
