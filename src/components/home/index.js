@@ -11,8 +11,14 @@ export default class Home extends Component {
 
     return (
       <View style={styles.container}>
-        <Button title="Load" onPress={() => navigate('Timer', { current: sevenSeconds })}/>
-        <Button title="Edit"/>
+        <Button
+          title="Load"
+          onPress={() => navigate('Timer', { current: sevenSeconds })}
+        />
+        <Button
+          title="New workout"
+          onPress={() => navigate('Designer')}
+        />
       </View>
     )
   }
