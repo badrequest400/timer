@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, SectionList, Button, Image } from 'react-native';
 import Exercise from '../exercise';
 import styles from './styles.js';
+import Context from '../../context';
 
 export default class Designer extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ export default class Designer extends Component {
   }
   render() {
     return (
+      <Consumer>
       <View>
         <TextInput
           placeholder="Workout Name"
@@ -43,6 +45,9 @@ export default class Designer extends Component {
         onPress={() => {}}
       />
       </View>
+      </Consumer>
     )
   }
-}
+};
+
+Designer.contextType = Context;

@@ -1,0 +1,50 @@
+{
+  "rockRings": {
+    "sections": [
+      {
+        "title": "Warm up",
+        "data": [
+          {
+            "name": "Top Jug",
+            "seconds": 10,
+            "reps": 3,
+            "cooldown": 10
+          },
+          {
+            "name": "4 Finger Pocket",
+            "seconds": 10,
+            "reps": 3,
+            "cooldown": 10
+          }
+        ]
+      }
+    ]
+  },
+  "sevenMinute": {
+    "sections": [
+      {
+        "title": "Main",
+        "data": [
+          {
+            "name": "Jumping Jacks",
+            "seconds": 30,
+            "reps": 1,
+            "cooldown": 10
+          },
+          {
+            "name": "Pushups",
+            "seconds": 30,
+            "reps": 1,
+            "cooldown": 10
+          },
+          {
+            "name": "Crouches",
+            "seconds": 30,
+            "reps": 1,
+            "cooldown": 10
+          }
+        ]
+      }
+    ]
+  }
+}
