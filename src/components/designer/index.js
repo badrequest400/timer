@@ -20,7 +20,7 @@ export default class Designer extends Component {
             onPress={() => this.setState({ sections: [ ...this.state.sections, { title: `Section ${this.state.sections.length + 1}`, data: [] } ] })}
           />
         <SectionList
-          renderItem={({ item }) => <Exercise />}
+          renderItem={({ item }) => <Exercise editable/>}
           renderSectionHeader={({ section: { title } }) =>
             <View>
               <Text style={{fontWeight: 'bold'}}>{title}</Text>

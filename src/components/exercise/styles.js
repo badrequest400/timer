@@ -19,4 +19,7 @@ export default StyleSheet.create({
     paddingRight: 40,
     paddingLeft: 20,
   },
+  pickerItem: {
+    height: 50
+  }
 });

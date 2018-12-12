@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, Text, Picker } from 'react-native';
 import styles from './styles';
+import { omit } from '../../utils';
 
 export default class Exercise extends Component {
   constructor(props) {
@@ -9,8 +10,8 @@ export default class Exercise extends Component {
   }
 
   render() {
-    const { editable, seconds, reps, cooldown } = this.props;
-    const attributes = [ seconds, reps, cooldown ];
+    const { editable } = this.props;
+    const attributes = omit([ 'name' ], Object.keys(this.state));
     const name = 'YOYOYO'
     return (
       <View style={styles.container}>
@@ -32,11 +33,12 @@ export default class Exercise extends Component {
               <Picker
                 style={styles.picker}
                 selectedValue={this.state[attr]}
-                onValueChange={val => this.setState({ [attr]: val })}>
+                onValueChange={val => this.setState({ [attr]: val })}
+                itemStyle={styles.pickerItem}>
                 { Array.from({ length: 60 }).map((_, idx) => (<Picker.Item label={idx.toString()} value={idx} key={idx}/>)) }
               </Picker>)
           :
-          attributes.map(attr => <Text>{attr}</Text>)
+          attributes.map(attr => <Text>{`${attr}: ${this.state[attr]}`}</Text>)
         }
       </View>
     )
