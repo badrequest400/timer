@@ -3,21 +3,22 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   input: {
-    flexGrow: 1,
-    width: 50,
-    paddingRight: 20,
-    paddingLeft: 40,
+    width: 100,
+    paddingBottom: 20,
+  },
+  valuesContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   picker: {
-    flexGrow: 1,
-    width: 50,
-    paddingRight: 40,
-    paddingLeft: 20,
+    width: 100,
+    paddingBottom: 20,
   },
   pickerItem: {
     height: 50
