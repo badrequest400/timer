@@ -1,15 +1,12 @@
 import React from 'react';
-import { Consumer } from '../../context';
+import { FlatList, Text } from 'react-native';
 
-export function Load(props) {
+export default function Load(props) {
+  const data = props.navigation.getParam('data');
   return (
-    <Consumer>
-      {({ context }) => (
-        <FlatList
-          data={Object.keys(context)}
-          renderItem={(item) => <Text style={ fontWeight: 'bold' }>{item}</Text>}
-        />
-      )}
-    </Consumer>
+    <FlatList
+      data={Object.keys(data)}
+      renderItem={ ({ item }) => <Text>{item}</Text> }
+    />
   )
 }

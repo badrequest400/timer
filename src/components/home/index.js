@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { View, Button } from 'react-native';
 import styles from './styles';
-import { Provider } from '../context';
 
 const sevenSeconds = new Date(new Date(null).setSeconds(7))
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      context: {},
-      setContext: function(ctx) {
-        this.context = ctx
-      }
-    };
+    this.state = { context: {} };
+  }
+
+  setContext = ctx => {
+    this.setState({ context: ctx });
   }
 
   componentDidMount() {
@@ -21,24 +19,22 @@ export default class Home extends Component {
     // ASYNC STORAGE
     // NETWORK
     const data = require('../../../data/mock.json');
-    this.setState({ context: data });
+    this.setState({ context: { ...this.state.context, ...data } });
   }
 
   render() {
     const { navigation: { navigate } } = this.props;
     return (
-      <Provider value={this.state}>
-        <View style={styles.container}>
-          <Button
-            title="Load"
-            onPress={() => navigate('Timer', { current: sevenSeconds })}
-          />
-          <Button
-            title="New workout"
-            onPress={() => navigate('Designer')}
-          />
-        </View>
-      </Provider>
+      <View style={styles.container}>
+        <Button
+          title="Load"
+          onPress={() => navigate('Load', { data: this.state.context })}
+        />
+        <Button
+          title="New workout"
+          onPress={() => navigate('Designer', { ...this.state, setContext: this.setContext })}
+        />
+      </View>
     )
   }
 }

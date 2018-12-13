@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, Text, Picker } from 'react-native';
 import styles from './styles';
-import Context from '../../context';
 import { omit } from '../../utils';
 
 export default class Exercise extends Component {
@@ -14,7 +13,6 @@ export default class Exercise extends Component {
     const { editable, name } = this.props;
     const attributes = Object.keys(omit([ 'name', 'editable' ], this.state));
     return (
-      <Consumer>
       <View style={styles.container}>
         {
           editable ?
@@ -44,9 +42,6 @@ export default class Exercise extends Component {
           }
         </View>
       </View>
-    </Consumer>
     )
   }
 };
-
-Exercise.contextType = Context;

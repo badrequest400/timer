@@ -10,8 +10,8 @@ export default class Designer extends Component {
     this.state = { sections: [], name: '' };
   }
   render() {
+    const { setContext, context } = this.props.navigation.state.params;
     return (
-      <Consumer>
       <View>
         <TextInput
           placeholder="Workout Name"
@@ -42,12 +42,16 @@ export default class Designer extends Component {
         />
       <Button
         title="Save"
-        onPress={() => {}}
+        onPress={() => {
+          console.log('SAVING >>>>', this.state);
+          console.log('SAVING >>>>', context);
+          console.log('SAVING >>>>', setContext);
+
+          setContext({ ...context, [this.state.name]: this.state.sections })
+        }
+        }
       />
       </View>
-      </Consumer>
     )
   }
 };
-
-Designer.contextType = Context;
